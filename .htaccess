@@ -1,0 +1,12 @@
+<FilesMatch "(\.env|\.env\..*|\.ini|\.bak|\.sql|\.log)$">
+    Require all denied
+</FilesMatch>
+
+# Block dotfiles in general
+<Files .*>
+    Require all denied
+</Files>
+
+# Disallow direct web access to PHP helper files
+RewriteEngine On
+RewriteRule ^includes/ - [F,L,NC]
